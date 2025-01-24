@@ -1,6 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
+
+app.use(cors());
+app.use(express.json());
 
 app.listen(port, () => {
     console.log(`App is listening to port: ${port}`);
@@ -87,15 +91,37 @@ app.listen(port, () => {
 
 ];
 
-app.get('/movies', (req, res) => {
+app.get('/favoriteMovies', (req, res) => {
     res.json(favoriteMovies);
 });
 
+app.post('/favoriteMovies', (req, res) => {
+    const newMovie =req.body;
 
-const button = document.getElementById("searchBtn");
+        if (!newMovie.title || !newMovie.director || !newMovie.year || !newMovie.cast || !newMovie.genre){
 
-button.addEventListener("click", function(){
+                return res.status(400).json({ error: "Missing required fields" });
+        }
 
-    
+    favoriteMovies.push(newMovie);
+});
 
+app.delete('/favoriteMovies', (req, res) => {
+        const {title} = req.body;
+
+        if(!title){
+            return res.status(400).json({ error: "Movie title is required to delete." });
+        }
+
+        const movieIndex = favoriteMovies.findIndex(movie => movie.title === title);
+        favoriteMovies.splice(movieIndex, 1);
 })
+
+
+
+//const button = document.getElementById("searchBtn");
+
+//button.addEventListener("click", function(){
+        //console.log("Button Clicked!");
+
+//});

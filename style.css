@@ -6,3 +6,10 @@ body{
     display: flex;
     justify-content: center;
 }
+
+#movieDisplayDiv{
+    width: 1000px;
+    height: 2500px;
+    border: solid white;
+
+}

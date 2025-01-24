@@ -14,12 +14,24 @@
         <div id = "backgroundDiv">
                 <h1>Tucker's Favorite Movies</h1>
             <div id = "searchBar">
-                <form action = "/search" method = "get">
-                    <input type = "text" name="query" placeholder="Search...">
-                    <button id ="searchBtn" type="submit">Search</button>
-                </form>
+                
+                    <button id ="searchBtn" type="submit">Movie List</button>
+                    <form id="addMovieForm">
+                        <input type="text" id="title" placeholder="Movie Title" required>
+                        <input type="text" id="director" placeholder="Director" required>
+                        <input type="number" id="year" placeholder="Year" required>
+                        <input type="text" id="genre" placeholder="Genres (comma separated)" required>
+                        <input type="text" id="cast" placeholder="Cast (comma separated)" required>
+                        <button type="button" id="addMovieBtn">Add Movie</button>
+                    </form>
+                    <input type="text" id ="deleteForm" placeholder="Enter title to delete">
+                    <button id="deleteBtn" type="submit">Delete Movie</button>
 
-            </div>
+                </div>
+                    <div id = "movieDisplayDiv">
+                        
+
+                </div>
         </div>
             
         
@@ -33,5 +45,5 @@
 
 
 
-    <script src = "app.js"></script>
+    <script src = "main.js"></script>
   </body>
